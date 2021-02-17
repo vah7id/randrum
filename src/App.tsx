@@ -1,26 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { APP_STATUS } from './modules/shared/enums';
+import { AppInterface } from './modules/shared/types';
+import PlayAction from './modules/actions/play';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+type AppState = {
+  status: string;
+}
+
+type MyProps = {
+  status: string;
+}
+
+class App extends React.Component<MyProps, AppState> {
+  constructor(props: MyProps) {
+    super(props);
+    this.state = {
+      status: this.props.status || APP_STATUS.INIT
+    }
+    this.setStatus = this.setStatus.bind(this);
+  }
+  setStatus(newFlag: string) {
+    this.setState({ status: newFlag });
+  }
+  render() {
+    console.log(this.state.status)
+    return (<div><PlayAction setStatus={this.setStatus} status={this.state.status} /> {this.state.status}</div>)
+  }
 }
 
 export default App;

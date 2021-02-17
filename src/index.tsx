@@ -3,10 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {APP_STATUS} from './modules/shared/enums';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App status={APP_STATUS.INIT} />
   </React.StrictMode>,
   document.getElementById('root')
 );

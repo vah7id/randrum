@@ -1,0 +1,10 @@
+// ===== ENUMS
+
+export enum APP_STATUS {
+    INIT = 'RNDRM_INIT',
+    RECORDING = 'RNDRM_RECORDING',
+    PLAYING = 'RNDRM_PLAYING',
+    PAUSED = 'RNDRM_PAUSED',
+    LOADING = 'RNDRM_LOADING'
+  }
+  
